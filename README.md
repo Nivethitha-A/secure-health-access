@@ -1,73 +1,230 @@
-# Welcome to your Lovable project
+# 🏥 MedGuard – Zero Trust Healthcare Access Control System
 
-## Project info
+## 📌 Project Overview
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+MedGuard is a secure, zero-trust healthcare access management system designed to protect sensitive patient information.
 
-## How can I edit this code?
+The system enforces:
 
-There are several ways of editing your application.
+- Role-Based Access Control (RBAC)
+- Risk-Based Authentication
+- Emergency “Break-Glass” Access
+- Patient-Controlled Consent
+- Tamper-Evident Audit Logging
+- Security Monitoring Dashboard
 
-**Use Lovable**
+This project focuses on healthcare data protection, accountability, and privacy-by-design principles.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+# 🚀 Features
 
-**Use your preferred IDE**
+## 🔐 Secure Authentication
+- JWT-based login
+- Password hashing (bcrypt)
+- Device tracking
+- Risk scoring (Low / Medium / High)
+- OTP verification for risky logins
+- Session management
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛡 Role-Based Access Control (RBAC)
 
-Follow these steps:
+Supported roles:
+- Admin
+- Doctor
+- Nurse
+- Patient
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Access is strictly controlled based on role and assignment.
+
+---
+
+## 👤 Patient Consent Management
+- Patients can grant access to doctors
+- Patients can revoke access anytime
+- Time-limited consent support
+- Consent validation before record access
+
+---
+
+## 🚨 Emergency Break-Glass Access
+- Doctors can request emergency access
+- Justification required
+- Temporary access granted
+- Auto-expiry
+- Fully logged and flagged as high-risk
+
+---
+
+## 📜 Tamper-Evident Audit Logs
+- All sensitive actions are logged
+- Hash chaining for tamper detection
+- Integrity verification endpoint
+- No update/delete allowed on logs
+
+---
+
+## 📊 Security Monitoring Dashboard
+- View high-risk logins
+- Monitor emergency access usage
+- Detect suspicious behavior
+- Verify audit integrity
+
+---
+
+# 🏗 Tech Stack
+
+## Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn-ui
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcrypt
+
+---
+
+# 📂 Project Structure
+```
+medguard/
+│
+├── frontend/
+│ ├── src/
+│ └── ...
+│
+├── backend/
+│ ├── config/
+│ ├── routes/
+│ ├── controllers/
+│ ├── middleware/
+│ ├── models/
+│ ├── services/
+│ └── server.js
+│
+└── README.md
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+## 1️⃣ Clone the Repository
+
+```bash
 git clone <YOUR_GIT_URL>
+cd medguard
+```
+2️⃣ Install Dependencies
+Backend
+```bash
+cd backend
+npm install
+```
+Frontend
+```bash
+cd frontend
+npm install
+```
+3️⃣ Configure Environment Variables
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Create a .env file inside the backend folder:
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+4️⃣ Run the Project
+Start Backend
+```bash
+cd backend
+npm run dev
+```
+Start Frontend
+```bash
+cd frontend
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Frontend runs on:
+```
+http://localhost:5173
+```
+Backend runs on:
+```
+http://localhost:5000
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🛡 Security Architecture Overview
 
-**Use GitHub Codespaces**
+Every protected request follows this pipeline:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+JWT Authentication
 
-## What technologies are used for this project?
+Risk Evaluation
 
-This project is built with:
+RBAC Check
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Consent Validation
 
-## How can I deploy this project?
+Emergency Override Check
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Audit Logging
 
-## Can I connect a custom domain to my Lovable project?
+Zero Trust principle:
 
-Yes, you can!
+Never trust. Always verify.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+📜 API Overview
+Auth
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+POST /api/auth/login
+
+Patient
+
+GET /api/patient/:id
+
+POST /api/patient/grant-consent
+
+POST /api/patient/revoke-consent
+
+POST /api/patient/emergency-access
+
+Admin
+
+GET /api/admin/logs
+
+GET /api/admin/verify-logs
+
+🏆 Innovation Highlights
+
+Zero Trust Healthcare Architecture
+
+Patient-Centric Privacy Model
+
+Emergency Accountability Framework
+
+Tamper-Evident Logging Without Blockchain
+
+Context-Aware Risk Authentication
+
+📌 Future Improvements
+
+Biometric authentication
+
+Blockchain anchoring for logs
+
+AI-based anomaly detection
+
+Hospital system integration
+
+👥 Team
+
+Built by a 3-member team for secure healthcare innovation.
