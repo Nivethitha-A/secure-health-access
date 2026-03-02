@@ -14,16 +14,203 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          current_hash: string
+          device_id: string | null
+          id: string
+          ip_address: string | null
+          justification: string | null
+          patient_id: string | null
+          patient_name: string | null
+          previous_hash: string
+          risk_level: string
+          role: string
+          user_id: string
+          user_name: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          current_hash?: string
+          device_id?: string | null
+          id?: string
+          ip_address?: string | null
+          justification?: string | null
+          patient_id?: string | null
+          patient_name?: string | null
+          previous_hash?: string
+          risk_level?: string
+          role: string
+          user_id: string
+          user_name: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          current_hash?: string
+          device_id?: string | null
+          id?: string
+          ip_address?: string | null
+          justification?: string | null
+          patient_id?: string | null
+          patient_name?: string | null
+          previous_hash?: string
+          risk_level?: string
+          role?: string
+          user_id?: string
+          user_name?: string
+        }
+        Relationships: []
+      }
+      emergency_access: {
+        Row: {
+          doctor_id: string
+          doctor_name: string
+          expiry_time: string
+          id: string
+          justification: string
+          patient_id: string
+          patient_name: string
+          start_time: string
+          status: string
+        }
+        Insert: {
+          doctor_id: string
+          doctor_name: string
+          expiry_time?: string
+          id?: string
+          justification: string
+          patient_id: string
+          patient_name: string
+          start_time?: string
+          status?: string
+        }
+        Update: {
+          doctor_id?: string
+          doctor_name?: string
+          expiry_time?: string
+          id?: string
+          justification?: string
+          patient_id?: string
+          patient_name?: string
+          start_time?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      patient_consents: {
+        Row: {
+          created_at: string
+          doctor_id: string
+          doctor_name: string
+          expiry_date: string
+          id: string
+          patient_id: string
+          revoked_at: string | null
+          specialty: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          doctor_id: string
+          doctor_name: string
+          expiry_date: string
+          id?: string
+          patient_id: string
+          revoked_at?: string | null
+          specialty?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          doctor_id?: string
+          doctor_name?: string
+          expiry_date?: string
+          id?: string
+          patient_id?: string
+          revoked_at?: string | null
+          specialty?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string
+          email: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name: string
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_role: {
+        Args: { _user_id: string }
+        Returns: Database["public"]["Enums"]["app_role"]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      verify_audit_chain: {
+        Args: never
+        Returns: {
+          broken_at: string
+          is_valid: boolean
+        }[]
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "doctor" | "nurse" | "patient"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +337,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "doctor", "nurse", "patient"],
+    },
   },
 } as const
