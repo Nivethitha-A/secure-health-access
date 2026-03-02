@@ -1,5 +1,6 @@
 # 🏥 MedGuard – Zero Trust Healthcare Access Control System
-Demo Video URL: https://docs.google.com/presentation/d/12DkXJIlsybgWVbG3SMItXwY0YV4iz5Bv/edit?usp=sharing&ouid=112183929649404340498&rtpof=true&sd=true 
+Demo Video URL: https://drive.google.com/file/d/1w55lgr78igkJ1_OdSUN1UzoG1nt01ENP/view?usp=sharing 
+PPT Link: https://drive.google.com/file/d/1w55lgr78igkJ1_OdSUN1UzoG1nt01ENP/view?usp=sharing
 ## 📌 Project Overview
 
 MedGuard is a secure, zero-trust healthcare access management system designed to protect sensitive patient information.
