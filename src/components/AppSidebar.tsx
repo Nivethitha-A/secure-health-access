@@ -21,9 +21,13 @@ export function AppSidebar() {
 
   const filteredNav = navItems.filter(item => user && item.roles.includes(user.role));
 
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
+  };
+
   return (
     <aside className="flex h-screen w-64 flex-col border-r border-border bg-sidebar">
-      {/* Logo */}
       <div className="flex items-center gap-3 border-b border-border px-5 py-5">
         <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-primary">
           <Shield className="h-5 w-5 text-primary-foreground" />
@@ -34,21 +38,15 @@ export function AppSidebar() {
         </div>
       </div>
 
-      {/* Nav */}
       <nav className="flex-1 space-y-1 p-3 overflow-y-auto scrollbar-thin">
         {filteredNav.map(item => {
           const active = location.pathname === item.path;
           return (
-            <button
-              key={item.path}
-              onClick={() => navigate(item.path)}
+            <button key={item.path} onClick={() => navigate(item.path)}
               className={cn(
                 "flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-all",
-                active
-                  ? "bg-primary/10 text-primary glow-primary"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-              )}
-            >
+                active ? "bg-primary/10 text-primary glow-primary" : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+              )}>
               <item.icon className="h-4 w-4" />
               {item.label}
             </button>
@@ -56,7 +54,6 @@ export function AppSidebar() {
         })}
       </nav>
 
-      {/* User */}
       {user && (
         <div className="border-t border-border p-4">
           <div className="flex items-center gap-3 mb-3">
@@ -66,17 +63,13 @@ export function AppSidebar() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-foreground truncate">{user.name}</p>
               <p className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-muted-foreground">
-                <Lock className="h-2.5 w-2.5" />
-                {user.role}
+                <Lock className="h-2.5 w-2.5" />{user.role}
               </p>
             </div>
           </div>
-          <button
-            onClick={() => { logout(); navigate('/'); }}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
-          >
-            <LogOut className="h-4 w-4" />
-            Sign Out
+          <button onClick={handleLogout}
+            className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors">
+            <LogOut className="h-4 w-4" /> Sign Out
           </button>
         </div>
       )}
