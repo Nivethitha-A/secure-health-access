@@ -90,23 +90,19 @@ Access to patient data is strictly controlled based on role and assignment.
 
 # 📂 Project Structure
 ```
-medguard/
+secure-health-access/
 │
-├── frontend/
-│ ├── src/
-│ └── ...
-│
-├── backend/
-│ ├── config/
-│ ├── routes/
-│ ├── controllers/
-│ ├── middleware/
-│ ├── models/
+├── src/
+│ ├── components/
+│ ├── pages/
 │ ├── services/
-│ └── server.js
+│ ├── hooks/
+│ └── main.tsx
 │
+├── public/
+├── package.json
+├── vite.config.ts
 └── README.md
-```
 
 ---
 
@@ -118,84 +114,70 @@ medguard/
 git clone "https://github.com/Nivethitha-A/secure-health-access"
 ```
 2️⃣ Install Dependencies
-Backend
-```bash
-cd backend
-npm install
 ```
-Frontend
-```bash
-cd frontend
 npm install
 ```
 3️⃣ Configure Environment Variables
 
-Create a .env file inside the backend folder:
-
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-4️⃣ Run the Project
-Start Backend
-```bash
-cd backend
-npm run dev
+Create a .env file in the root directory:
 ```
-Start Frontend
-```bash
-cd frontend
+VITE_DATABASE_URL=your_database_url
+VITE_API_KEY=your_api_key
+```
+
+4️⃣ Run Development Server
+```
 npm run dev
 ```
 
-Frontend runs on:
+The application will run at:
 ```
 http://localhost:5173
 ```
-Backend runs on:
-```
-http://localhost:5000
-```
+## 🔐 Security Architecture
 
-🛡 Security Architecture Overview
+Every protected action follows the Zero Trust model:
 
-Every protected request follows this pipeline:
+Authentication verification
 
-JWT Authentication
+Risk evaluation
 
-Risk Evaluation
+Role-based access check
 
-RBAC Check
+Consent validation
 
-Consent Validation
+Emergency override validation
 
-Emergency Override Check
+Audit logging
 
-Audit Logging
-
-Zero Trust principle:
+Principle:
 
 Never trust. Always verify.
 
 📜 API Overview
-Auth
+Authentication
 
-POST /api/auth/login
+Login
+
+Session validation
 
 Patient
 
-GET /api/patient/:id
+View patient record
 
-POST /api/patient/grant-consent
+Grant consent
 
-POST /api/patient/revoke-consent
+Revoke consent
 
-POST /api/patient/emergency-access
+Emergency access request
 
 Admin
 
-GET /api/admin/logs
+View audit logs
 
-GET /api/admin/verify-logs
+Verify log integrity
+
+Monitor suspicious activity
 
 🏆 Innovation Highlights
 
