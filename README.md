@@ -1,38 +1,36 @@
-# 🏥 MedGuard – Zero Trust Healthcare Access Control System
-Demo Video URL: https://drive.google.com/file/d/1w55lgr78igkJ1_OdSUN1UzoG1nt01ENP/view?usp=sharing 
-PPT Link: 
-https://docs.google.com/presentation/d/12DkXJIlsybgWVbG3SMItXwY0YV4iz5Bv/edit?usp=sharing&ouid=112183929649404340498&rtpof=true&sd=true
-
-## 📌 Project Overview
-
-MedGuard is a secure, zero-trust healthcare access management system designed to protect sensitive patient information.
-
-The system enforces:
-
-- Role-Based Access Control (RBAC)
-- Risk-Based Authentication
-- Emergency “Break-Glass” Access
-- Patient-Controlled Consent
-- Tamper-Evident Audit Logging
-- Security Monitoring Dashboard
-
-This project focuses on healthcare data protection, accountability, and privacy-by-design principles.
+# 🏥 Secure Health Access
+### Zero Trust Healthcare Access Control System
 
 ---
 
-# 🚀 Features
+## 📌 Overview
 
-## 🔐 Secure Authentication
-- JWT-based login
-- Password hashing (bcrypt)
+Secure Health Access is a Zero Trust-based healthcare security platform designed to protect sensitive patient information through strict access control, risk-based authentication, and tamper-evident logging.
+
+The system ensures:
+
+- 🔐 Secure authentication
+- 🛡 Role-Based Access Control (RBAC)
+- 🚨 Emergency "Break-Glass" access
+- 👤 Patient-controlled consent
+- 📜 Tamper-evident audit logs
+- 📊 Security monitoring dashboard
+
+This project was built to demonstrate modern healthcare cybersecurity principles.
+
+---
+
+## 🚀 Key Features
+
+### 🔐 Authentication & Risk Control
+- Secure login system
+- Risk-based authentication
 - Device tracking
-- Risk scoring (Low / Medium / High)
-- OTP verification for risky logins
-- Session management
+- Session validation
 
 ---
 
-## 🛡 Role-Based Access Control (RBAC)
+### 🛡 Role-Based Access Control (RBAC)
 
 Supported roles:
 - Admin
@@ -40,59 +38,53 @@ Supported roles:
 - Nurse
 - Patient
 
-Access is strictly controlled based on role and assignment.
+Access to patient data is strictly controlled based on role and assignment.
 
 ---
 
-## 👤 Patient Consent Management
-- Patients can grant access to doctors
+### 👤 Patient Consent System
+- Patients can grant doctor access
 - Patients can revoke access anytime
-- Time-limited consent support
+- Time-limited consent permissions
 - Consent validation before record access
 
 ---
 
-## 🚨 Emergency Break-Glass Access
-- Doctors can request emergency access
-- Justification required
+### 🚨 Emergency Access (Break-Glass)
+- Doctor must provide justification
 - Temporary access granted
-- Auto-expiry
-- Fully logged and flagged as high-risk
+- Automatically expires
+- Fully logged as high-risk activity
 
 ---
 
-## 📜 Tamper-Evident Audit Logs
+### 📜 Tamper-Evident Audit Logging
 - All sensitive actions are logged
-- Hash chaining for tamper detection
-- Integrity verification endpoint
-- No update/delete allowed on logs
+- Log hash chaining for integrity
+- Audit verification system
+- No modification allowed on logs
 
 ---
 
-## 📊 Security Monitoring Dashboard
-- View high-risk logins
-- Monitor emergency access usage
-- Detect suspicious behavior
+### 📊 Admin Security Dashboard
+- Monitor high-risk logins
+- Track emergency access
+- View suspicious activity
 - Verify audit integrity
 
 ---
 
-# 🏗 Tech Stack
+## 🏗 Tech Stack
 
-## Frontend
+### Frontend
 - React
 - TypeScript
 - Vite
 - Tailwind CSS
-- shadcn-ui
 
-## Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT
-- bcrypt
+### Backend / Database
+- PostgreSQL
+- PLpgSQL (for database-level logic)
 
 ---
 
@@ -123,8 +115,7 @@ medguard/
 ## 1️⃣ Clone the Repository
 
 ```bash
-git clone <YOUR_GIT_URL>
-cd medguard
+git clone "https://github.com/Nivethitha-A/secure-health-access"
 ```
 2️⃣ Install Dependencies
 Backend
