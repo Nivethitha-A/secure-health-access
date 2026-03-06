@@ -1,5 +1,6 @@
 # 🏥 Secure Health Access
 ### Zero Trust Healthcare Access Control System
+PUBLIC URL: https://medguard-care-trust.lovable.app/
 DEMO VIDEO URL: https://drive.google.com/file/d/1w55lgr78igkJ1_OdSUN1UzoG1nt01ENP/view?usp=sharing
 PPT URL: https://docs.google.com/presentation/d/12DkXJIlsybgWVbG3SMItXwY0YV4iz5Bv/edit?usp=sharing&ouid=112183929649404340498&rtpof=true&sd=true
 
